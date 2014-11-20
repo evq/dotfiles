@@ -1,0 +1,11 @@
+set editing-mode vi
+set bell-style none
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+    "?": history-search-backward
+    "/": history-search-forward
+    #set keymap vi-insert       #notice how the "jj" movement is
+    #"jj": vi-movement-mode     #after 'set keymap vi-insert'?
+$endif

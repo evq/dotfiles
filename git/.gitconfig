@@ -1,0 +1,41 @@
+[user]
+	name = Evey Quirk
+	email = ev@7pr.xyz
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+  editor = vim
+[receive]
+  denyCurrentBranch = warn
+[diff]
+	tool = vimdiff
+	noprefix = true
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	s = status
+  l = log
+  c = commit
+  m = mergetool
+	ctags = !.git/hooks/ctags
+[include]
+  path = .localgitconfig
+[svn]
+  authorsprog = /root/bin/authorlookup.sh
+  addAuthorFrom = true
+[push]
+	default = simple
+[init]
+	templatedir = /root/.git/templates
+[http]
+    sslVerify = false
+[merge]
+	tool = vimmerge
+[mergetool]
+	prompt = false
+[mergetool "vimmerge"]
+	cmd = vimmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	keepBackup = false

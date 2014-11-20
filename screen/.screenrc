@@ -1,0 +1,12 @@
+defscrollback 1000
+term xterm-256color
+
+# Magic line to disable resizing
+termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+termcapinfo xterm* ts@:te@
+
+backtick 1 1 1 zsh ~/.econf/bin/hostcolor.sh
+
+hardstatus alwayslastline '%{= dd}%{= Wr} %D %d %M %c %{= WK}%-w%{= Wk}%n %t %f%{= WK}%+w %{= dd} %= %1`%H'

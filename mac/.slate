@@ -1,0 +1,90 @@
+# This is the default .slate file.
+# If no ~/.slate file exists this is the file that will be used.
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config checkDefaultsOnLoad true
+
+# Resize Bindings
+bind right:alt       resize +10% +0
+bind left:alt        resize -10% +0
+bind up:alt          resize +0   -10%
+bind down:alt        resize +0   +10%
+bind right:ctrl;alt  resize -10% +0 bottom-right
+bind left:ctrl;alt   resize +10% +0 bottom-right
+bind up:ctrl;alt     resize +0   +10% bottom-right
+bind down:ctrl;alt   resize +0   -10% bottom-right
+
+# Push Bindings
+bind right:ctrl;cmd  push right bar-resize:screenSizeX/3
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/3
+bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Nudge Bindings
+bind right:shift;alt nudge +10% +0
+bind left:shift;alt  nudge -10% +0
+bind up:shift;alt    nudge +0   -10%
+bind down:shift;alt  nudge +0   +10%
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+bind 3:ctrl;alt         throw 2 resize
+bind right:ctrl;alt;cmd throw right resize
+bind left:ctrl;alt;cmd  throw left  resize
+bind up:ctrl;alt;cmd    throw up    resize
+bind down:ctrl;alt;cmd  throw down  resize
+
+# Focus Bindings
+bind right:cmd    focus right
+bind left:cmd     focus left
+bind up:cmd       focus up
+bind down:cmd     focus down
+bind up:cmd;alt   focus behind
+bind down:cmd;alt focus behind
+
+# Window Hints
+bind esc:cmd hint
+
+# Monitor aliaes
+#
+
+# Grid
+bind space:cmd grid padding:5 0:8,6 1:8,6 2:8,6
+
+# Position aliases
+alias 0-left move screenOriginX;screenOriginY screenSizeX/2;screenSizeY 0
+alias 0-right move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY 0
+# These are mainly for single monitor
+alias 0-main move screenOriginX+screenSizeX/20;screenOriginY 18*screenSizeX/20;screenSizeY 0
+alias 0-chatlist move screenOriginX;screenOriginY screenSizeX/3;screenSizeY/2 0
+alias 0-chat move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 0
+
+alias 1-left move screenOriginX;screenOriginY screenSizeX/2;screenSizeY 1
+alias 1-right move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY 1
+alias 1-topright move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2 1
+alias 1-botright move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 1
+
+alias 2-mail move screenOriginX;screenOriginY 2*screenSizeX/3;screenSizeY 2
+alias 2-mailreply move screenOriginX+screenSizeX/6;screenOriginY+screenSizeY/6 2*screenSizeX/3;2*screenSizeY/3 2
+alias 2-chatlist move screenOriginX+2*screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2 2
+alias 2-chat move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 2
+
+# Three monitor layout
+layout 3monitors 'iTerm':REPEAT,SORT_TITLE ${0-right} | ${1-right}
+layout 3monitors 'Google Chrome':MAIN_FIRST ${0-left} | ${1-left} 
+layout 3monitors 'Mail':IGNORE_FAIL,TITLE_ORDER_REGEX=^Inbox ${2-mail} | ${2-mailreply}
+layout 3monitors 'Adium':IGNORE_FAIL,TITLE_ORDER=Contacts ${2-chatlist} | ${2-chat}
+layout 3monitors 'MacVim':TITLE_ORDER ${1-topright} | ${1-botright}
+
+# One monitor layout
+layout 1monitor 'iTerm':REPEAT ${0-main}
+layout 1monitor 'Google Chrome':REPEAT ${0-main}
+layout 1monitor 'Mail':REPEAT ${0-main}
+layout 1monitor 'MacVim':REPEAT ${0-main}
+layout 1monitor 'Adium':IGNORE_FAIL,TITLE_ORDER=Contacts ${0-chatlist} | ${0-chat}
+
+default 3monitors resolutions:1920x1080;1920x1080;1440x900
+default 1monitor resolutions:1440x900
