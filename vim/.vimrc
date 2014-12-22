@@ -30,6 +30,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tfnico/vim-gradle'
 Bundle 'jnwhiteh/vim-golang.git'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'fidian/hexmode'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 filetype plugin indent on
