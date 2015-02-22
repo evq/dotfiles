@@ -1,9 +1,13 @@
 URxvt.font: xft:monaco:size=12
 URxvt.scrollBar: false
+URxvt.depth: 32
+URxvt.background: [75]#000000
+
+Xcursor.size: 16
 
 ! terminal colours
 *foreground:#a0a0a0
-*background:#1b1d1e
+#*background:#1b1d1e
 
 !molokai inspired colors
 
@@ -31,3 +35,4 @@ URxvt.scrollBar: false
 !white
 *color7:    #ccccc6
 *color15:   #f8f8f2
+

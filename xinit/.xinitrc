@@ -2,6 +2,8 @@
 xsetroot -cursor_name left_ptr &
 pulseaudio --start &
 sxhkd &
+compton &
 sh ~/.fehbg &
+xset -dpms
 eval $(envoy -p)
 exec bspwm

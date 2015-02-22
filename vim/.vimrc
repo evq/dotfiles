@@ -124,7 +124,7 @@ autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
 autocmd BufWritePost *.tex silent !pdflatex %
 autocmd BufWritePost *.solid.py silent !python %
 
-colorscheme molokai
+colorscheme molokai-transparent
 
 " Continue comment after pressing enter (+=o for after pressing o)
 set fo+=r 
