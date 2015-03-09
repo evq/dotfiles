@@ -32,6 +32,7 @@ Bundle 'jnwhiteh/vim-golang.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'fidian/hexmode'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'JuliaLang/julia-vim'
 
 filetype plugin indent on
 " End of Vundle stuffs
