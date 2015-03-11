@@ -114,6 +114,7 @@ alias sudo="sudo -E"
 alias history="history 1"
 alias ack="ack --smart-case"
 alias weather="weather -u si"
+alias ijulia="ipython console --profile julia"
 
 function search () {
   ls -d **/*$1* | tr ' ' '\n'

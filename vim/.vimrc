@@ -122,6 +122,7 @@ au BufNewFile,BufRead *.s set filetype=S syntax=asmx86_64
 au BufNewFile,BufRead *.h set filetype=h syntax=c
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead .gitignore set filetype=gitignore
+au BufNewFile,BufRead LICENSE set filetype=LICENSE
 autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
 autocmd BufWritePost *.tex silent !pdflatex %
 autocmd BufWritePost *.solid.py silent !python %
