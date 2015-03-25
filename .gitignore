@@ -1,3 +1,4 @@
 *.swp
 .netrwhist
 .DS_Store
+slic3r/.Slic3r/slic3r.ini
