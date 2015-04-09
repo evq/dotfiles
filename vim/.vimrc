@@ -14,13 +14,14 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'millermedeiros/vim-statline'
-"Bundle 'ervandew/supertab'
 Bundle 'benmills/vimux'
 Bundle 'sjl/gundo.vim.git'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Shougo/neocomplete.vim'
-"Bundle 'vim-scripts/Conque-Shell'
+if !has('nvim')
+  Bundle 'Shougo/neocomplete.vim'
+endif
 Bundle 'https://github.com/skwp/vim-conque.git'
+Bundle 'reedes/vim-lexical'
 
 " Filetype Plugins
 Bundle 'vim-scripts/openscad.vim'
@@ -101,10 +102,13 @@ set gdefault
 " Look in higher directories if ctags not found in pwd
 set tags=tags;/
 " Tab ctags nav
-nnoremap <tab> <C-]>
-vnoremap <tab> <C-]> 
-nnoremap <s-tab> <C-t>
-vnoremap <s-tab> <C-t> 
+"nnoremap <tab> <C-]>
+"vnoremap <tab> <C-]> 
+"nnoremap <s-tab> <C-t>
+"vnoremap <s-tab> <C-t> 
+
+" Spelling suggestions on tab in normal mode
+let g:lexical#spell_key = '<tab>'
 
 let mapleader = " "
 
@@ -163,10 +167,12 @@ set completeopt=longest,menuone,preview
 
  " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+if !has('nvim')
+  " Use neocomplete.
+  let g:neocomplete#enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+endif
 
 " <TAB>: completion.
 inoremap <expr><TAB>  "\<C-n>"
