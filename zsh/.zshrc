@@ -119,7 +119,9 @@ if (( $+commands[nvim] )) ; then
   alias vim="nvim"
   alias vimdiff="nvim -d"
 fi
-
+function mdig () {
+  dig -x $1 @224.0.0.251 -p 5353
+}
 function search () {
   ls -d **/*$1* | tr ' ' '\n'
 }
