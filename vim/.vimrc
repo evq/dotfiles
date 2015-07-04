@@ -29,10 +29,9 @@ Bundle 'sudar/vim-arduino-syntax'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tfnico/vim-gradle'
-Bundle 'jnwhiteh/vim-golang.git'
+Bundle 'fatih/vim-go'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'fidian/hexmode'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'JuliaLang/julia-vim'
 
 filetype plugin indent on
