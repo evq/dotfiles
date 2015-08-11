@@ -140,17 +140,24 @@ set comments=sl:/*,mb:\ *,elx:\ */
 set noswapfile
 set mouse=a
 " Better mouse support for WIDE windows
-set ttym=xterm2
+if !has('nvim')
+  set ttym=xterm2
+endif
 if has('mouse_sgr')
   set ttymouse=sgr
 endif
 
 let g:EasyMotion_leader_key = '<Leader>'
-
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-else
-  set clipboard=unnamed
+ 
+" Make sure clipboard always works, even if DISPLAY is wrong
+" xhost should be fairly compatible (seems to be present on mac)
+call system('xhost')
+if v:shell_error != 1 
+  if has('unnamedplus')
+    set clipboard=unnamed,unnamedplus
+  else
+    set clipboard=unnamed
+  endif
 endif
 
 if exists('+colorcolumn')
@@ -298,7 +305,7 @@ nnoremap <Leader>: :VimuxPromptCommand<cr>
 "vnoremap <Leader>d :Doc <c-r>=expand("<cword>")<cr><cr>
 
 " Go Dox
-nnoremap <Leader>d :Godoc<cr>
+nnoremap <Leader>d :GoDoc<cr>
 
 " Source local vimrc
 if filereadable("~/.localvimrc")

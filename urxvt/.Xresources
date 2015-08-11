@@ -1,9 +1,10 @@
-URxvt.font: xft:monaco:size=12
+URxvt.font: xft:monaco:size=10
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.background: [75]#000000
 
 Xcursor.size: 16
+Xcursor.theme: Adwaita
 
 ! terminal colours
 *foreground:#a0a0a0
@@ -35,4 +36,3 @@ Xcursor.size: 16
 !white
 *color7:    #ccccc6
 *color15:   #f8f8f2
-

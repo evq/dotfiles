@@ -13,7 +13,8 @@ AVR_TOOLS_DIR=/usr
 
 PANEL_FIFO="/tmp/panel-fifo"
 PANEL_HEIGHT=28
-#PANEL_FONT_FAMILY="-*-monaco-*-*-*-*-14-*-*-*-*-*-*-*"
+#PANEL_FONT_FAMILY="-*-noto sans-medium-r-*-*-14-*-*-*-*-*-*-*"
+PANEL_FONT_FAMILY="-*-terminus*-*-*-*-12-*-*-*-*-*-*-*"
 
 GOPATH=~/go
 PATH=$GOPATH/bin/:~/bin:/usr/local/bin:$PATH

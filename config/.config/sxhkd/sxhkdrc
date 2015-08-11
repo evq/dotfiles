@@ -2,9 +2,6 @@
 # bspwm hotkeys
 #
 
-super + alt + Escape
-	bspc quit
-
 super + w
 	bspc window -c
 
@@ -67,6 +64,9 @@ super + ctrl + {1-9}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} ^{1-9,10}
 
+super + {Right,Left}
+  bspc desktop -f {next,prev}
+
 ~button1
 	bspc pointer -g focus
 
@@ -89,6 +89,12 @@ super + Return
 super + space
 	dmenu_run
 
-# make sxhkd reload its configuration files:
+super + {Up,Down}
+  changevolume.sh {--increase, --decrease}
+
 super + Escape
+  xset dpms force suspend
+
+# make sxhkd reload its configuration files:
+super + alt + Escape
 	pkill -USR1 -x sxhkd

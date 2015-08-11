@@ -6,6 +6,22 @@
 
 num_mon=$(bspc query -M | wc -l)
 
+clock() {
+  DATE=$(date "+%a %d %b, %T")
+  echo -n "$DATE"
+}
+
+
+volume() {
+  MUTE=$(pamixer --get-mute)
+  if [ $MUTE = true ]; then
+    echo -n "Volume: MM"
+  else
+    VOL=$(pamixer --get-volume)
+    echo -n "Volume: $VOL%"
+  fi
+}
+
 while read -r line ; do
 	case $line in
 		S*)
@@ -63,12 +79,12 @@ while read -r line ; do
 						;;
 					L*)
 						# layout
-						wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{B-}%{F-}"
+						#wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{B-}%{F-}"
 						;;
 				esac
 				shift
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} arch%{c}${title}%{r}${sys_infos}"
+	printf "%s\n" "%{l}    arch%{c}${title}%{r}${wm_infos}  |  $(volume)  |  $(clock)    "
 done

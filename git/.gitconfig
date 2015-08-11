@@ -40,3 +40,5 @@
 [mergetool "vimmerge"]
 	cmd = vimmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	keepBackup = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/

@@ -115,6 +115,8 @@ alias history="history 1"
 alias ack="ack --smart-case"
 alias weather="weather -u si"
 alias ijulia="ipython console --profile julia"
+alias localauth="eval $(envoy -p)"
+alias remoteauth="export SSH_AUTH_SOCK=~/.ssh/agent_sock"
 if (( $+commands[nvim] )) ; then
   alias vim="nvim"
   alias vimdiff="nvim -d"
@@ -180,3 +182,7 @@ function fuzzy-wrap {
 zle -N fuzzy-wrap
 
 bindkey -M vicmd '^I' fuzzy-wrap
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
