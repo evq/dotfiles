@@ -52,20 +52,25 @@ if [[ -z $@ || $# != "4" ]] ; then
             OURS=/tmp/$$.ours
             OURSORIG=/tmp/$$.ours.orig
             THEIRS=/tmp/$$.theirs
+            THEIRSORIG=/tmp/$$.theirs.orig
 
 # Remove the conflict markers for each 'side' and put each into a temp file
 sed -e '/^=======$/,/>>>>>>>/d' -e '/<<<<<<</d' $MERGED > $THEIRS
 sed -e '/<<<<<<</,/^=======$/d' -e '/>>>>>>>/d' $MERGED > $OURS
 cp $OURS $OURSORIG
+cp $THEIRS $THEIRSORIG
 
 # Fire up vimdiff
 vimdiff $THEIRS $OURS
 
 if test $OURS -nt $OURSORIG; then
     cp -f $OURS $MERGED
+elif test $THEIRS -nt $THEIRSORIG; then
+    cp -f $THEIRS $MERGED
 fi
 
 
 rm $OURS
 rm $OURSORIG
 rm $THEIRS
+rm $THEIRSORIG

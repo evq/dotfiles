@@ -1,0 +1,25 @@
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | :set runtimepath^=$SSHHOME/.sshrc.d/.vim | source \$MYVIMRC"
+
+# vim mode
+set -o vi
+bind -m vi-insert '"jj": vi-movement-mode'
+bind -m vi-insert '"\C-l": clear-screen'
+bind -m vi-command '"gg": beginning-of-history'
+bind -m vi-command '"G": end-of-history'
+bind -m vi-command '"?": reverse-search-history'
+
+alias canup="sudo ip link set can0 up type can bitrate 1000000"
+alias gg="git grep"
+
+function sudo() {
+  /usr/bin/sudo -E bash --rcfile $SSHHOME/.sshrc -ci "$*"
+}
+
+function search () {
+  ls -d **/*$1* | tr ' ' '\n'
+}
+
+function gag () {
+  grep -r "$1" .
+}
+
