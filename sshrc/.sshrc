@@ -23,3 +23,5 @@ function gag () {
   grep -r "$1" .
 }
 
+. $SSHHOME/.sshrc.d/.bash/bash-completion
+. $SSHHOME/.sshrc.d/.bash/docker-completion
