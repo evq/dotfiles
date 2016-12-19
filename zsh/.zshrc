@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 plugins=(git docker brew fabric golang gradle python pip postgres 
-repo tmux
+repo tmux pass
 )
 
 source $ZSH/oh-my-zsh.sh

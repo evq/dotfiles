@@ -36,6 +36,7 @@ Plugin 'JuliaLang/julia-vim'
 Plugin 'mfukar/robotframework-vim' 
 Plugin 'nvie/vim-flake8'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'rust-lang/rust.vim'
 
 filetype plugin indent on
 " End of Vundle stuffs
@@ -127,10 +128,11 @@ au BufNewFile,BufRead *.S set filetype=S syntax=asmx86_64
 au BufNewFile,BufRead *.s set filetype=S syntax=asmx86_64
 au BufNewFile,BufRead *.h set filetype=h syntax=c
 au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.txt set filetype=markdown
 au BufNewFile,BufRead .gitignore set filetype=gitignore
 au BufNewFile,BufRead LICENSE set filetype=LICENSE
 autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
-autocmd BufWritePost *.tex silent !pdflatex %
+"autocmd BufWritePost *.tex silent !pdflatex %
 autocmd BufWritePost *.solid.py silent !python %
 
 colorscheme molokai-transparent
