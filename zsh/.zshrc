@@ -115,7 +115,6 @@ alias history="history 1"
 alias ack="ack --smart-case"
 alias weather="weather -u si"
 alias ijulia="ipython console --profile julia"
-alias localauth="eval $(envoy -p)"
 alias remoteauth="export SSH_AUTH_SOCK=~/.ssh/agent_sock"
 if (( $+commands[nvim] )) ; then
   alias vim="nvim"

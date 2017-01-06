@@ -1,4 +1,4 @@
-URxvt.font: xft:monaco:size=10
+URxvt.font: xft:monaco:size=9
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.background: [75]#000000
@@ -8,7 +8,7 @@ Xcursor.theme: Adwaita
 
 ! terminal colours
 *foreground:#a0a0a0
-#*background:#1b1d1e
+!*background:#1b1d1e
 
 !molokai inspired colors
 

@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/brave --high-dpi-support=1 --force-device-scale-factor=1.2
