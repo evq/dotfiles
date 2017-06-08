@@ -16,6 +16,9 @@ PANEL_HEIGHT=28
 #PANEL_FONT_FAMILY="-*-noto sans-medium-r-*-*-14-*-*-*-*-*-*-*"
 PANEL_FONT_FAMILY="-*-terminus*-*-*-*-12-*-*-*-*-*-*-*"
 
+# Brave build settings
+DISABLE_WEBPACK_NOTIFIER=1
+
 GOPATH=~/go
 PATH=$GOPATH/bin/:~/bin:/usr/local/bin:$PATH
 

@@ -1,5 +1,5 @@
 [user]
-	name = Evey Quirk
+	name = eV
 	email = ev@7pr.xyz
 [color]
 	diff = auto
@@ -32,7 +32,7 @@
 [init]
 	templatedir = /root/.git/templates
 [http]
-    sslVerify = false
+	sslVerify = true
 [merge]
 	tool = vimmerge
 [mergetool]
