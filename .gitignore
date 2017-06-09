@@ -2,3 +2,5 @@
 .netrwhist
 .DS_Store
 slic3r/.Slic3r/slic3r.ini
+oh-my-zsh
+vim/bundle

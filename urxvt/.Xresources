@@ -1,4 +1,4 @@
-URxvt.font: xft:monaco:size=9
+URxvt.font: xft:Monaco for Powerline:size=8
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.background: [75]#000000
