@@ -70,11 +70,13 @@ autoload -U colors && colors
 COLOR_VALUES=(117 161 141 208 112)
 #       blue orange green magenta purple
 NUM_COLORS=$#COLOR_VALUES
+if [ -z "$HOSTCOLOR_INDEX" ]; then
+  HOSTHASH=`echo "$HOST"| ( openssl md5 2> /dev/null || md5 2> /dev/null ||
+            md5sum 2> /dev/null ) |
+            cut -d' ' -f2 | awk '{ print "0x" substr($1, 2, 2) }'`
+  HOSTCOLOR_INDEX=$(($HOSTHASH % $NUM_COLORS))
+fi
 
-HOSTHASH=`echo "$HOST"| ( openssl md5 2> /dev/null || md5 2> /dev/null ||
-          md5sum 2> /dev/null ) |
-          cut -d' ' -f2 | awk '{ print "0x" substr($1, 2, 2) }'`
-HOSTCOLOR_INDEX=$(($HOSTHASH % $NUM_COLORS))
 HOSTCOLOR=%F{$COLOR_VALUES[$HOSTCOLOR_INDEX]}
 TMUXCOLOR="colour$COLOR_VALUES[$HOSTCOLOR_INDEX]"
 

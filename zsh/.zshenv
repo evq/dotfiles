@@ -23,3 +23,8 @@ GOPATH=~/go
 PATH=$GOPATH/bin/:~/bin:/usr/local/bin:$PATH
 
 unsetopt ALL_EXPORT
+
+# Include local zshenv
+if [[ -e ~/.localzshenv ]]; then
+  source ~/.localzshenv
+fi
