@@ -1,14 +1,28 @@
 URxvt.font: xft:Monaco for Powerline:size=8
 URxvt.scrollBar: false
-URxvt.depth: 32
-URxvt.background: [75]#000000
+
+! True transparency
+!URxvt.depth: 32
+!URxvt.background: [75]#000000
+
+! Fake transparency
+URxvt.transparent: true
+URxvt.shading: 15
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+URxvt.letterSpace: -2
 
 Xcursor.size: 16
 Xcursor.theme: Adwaita
 
 ! terminal colours
 *foreground:#a0a0a0
-!*background:#1b1d1e
+*background:#000000
 
 !molokai inspired colors
 
