@@ -5,7 +5,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
-
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
@@ -32,13 +31,14 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tfnico/vim-gradle'
 Bundle 'fatih/vim-go'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'fidian/hexmode'
+"Bundle 'fidian/hexmode'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'mfukar/robotframework-vim' 
 Plugin 'nvie/vim-flake8'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'rust-lang/rust.vim'
 
+call vundle#end()
 filetype plugin indent on
 " End of Vundle stuffs
 
