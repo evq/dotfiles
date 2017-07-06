@@ -1,6 +1,7 @@
 [user]
 	name = eV
 	email = ev@7pr.xyz
+	signingkey = 0x6B4CA47F11FA6487
 [color]
 	diff = auto
 	status = auto
@@ -24,13 +25,8 @@
 	ctags = !.git/hooks/ctags
 [include]
   path = .localgitconfig
-[svn]
-  authorsprog = /root/bin/authorlookup.sh
-  addAuthorFrom = true
 [push]
 	default = simple
-[init]
-	templatedir = /root/.git/templates
 [merge]
 	tool = vimmerge
 [mergetool]
@@ -38,3 +34,5 @@
 [mergetool "vimmerge"]
 	cmd = vimmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	keepBackup = false
+[commit]
+	gpgsign = true
