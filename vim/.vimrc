@@ -22,6 +22,7 @@ if !has('nvim')
 endif
 Bundle 'https://github.com/skwp/vim-conque.git'
 Bundle 'reedes/vim-lexical'
+Bundle 'vim-syntastic/syntastic'
 
 " Filetype Plugins
 Bundle 'vim-scripts/openscad.vim'
@@ -34,9 +35,9 @@ Bundle 'kchmck/vim-coffee-script'
 "Bundle 'fidian/hexmode'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'mfukar/robotframework-vim' 
-Plugin 'nvie/vim-flake8'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'rust-lang/rust.vim'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
@@ -132,7 +133,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.txt set filetype=markdown
 au BufNewFile,BufRead .gitignore set filetype=gitignore
 au BufNewFile,BufRead LICENSE set filetype=LICENSE
-autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
+"autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
 "autocmd BufWritePost *.tex silent !pdflatex %
 autocmd BufWritePost *.solid.py silent !python %
 
@@ -323,8 +324,23 @@ nnoremap <Leader>: :VimuxPromptCommand<cr>
 
 " Go Dox
 nnoremap <Leader>d :GoDoc<cr>
-" Python syntax
-autocmd FileType python map <buffer> <Leader>s :call Flake8()<CR>
+
+" javascript standard lint
+autocmd bufwritepost *.js silent !standard --fix %
+
+" syntastic
+map <buffer> <Leader>s :call SyntasticCheck()<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['standard']
+
 " Source local vimrc
 if filereadable("~/.localvimrc")
   so ~/.localvimrc
