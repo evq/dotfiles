@@ -322,6 +322,9 @@ nnoremap <Leader>: :VimuxPromptCommand<cr>
 "nnoremap <Leader>d :Doc <c-r>=expand("<cword>")<cr><cr>
 "vnoremap <Leader>d :Doc <c-r>=expand("<cword>")<cr><cr>
 
+" Auto rustfmt
+let g:rustfmt_autosave = 1
+
 " Go Dox
 nnoremap <Leader>d :GoDoc<cr>
 

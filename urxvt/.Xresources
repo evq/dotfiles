@@ -15,7 +15,7 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-URxvt.letterSpace: -2
+URxvt.letterSpace: -1
 
 Xcursor.size: 16
 Xcursor.theme: Adwaita
