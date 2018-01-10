@@ -328,11 +328,16 @@ let g:rustfmt_autosave = 1
 " Go Dox
 nnoremap <Leader>d :GoDoc<cr>
 
+" Auto goimports
+let g:go_fmt_command = "goimports"
+
 " javascript standard lint
 autocmd bufwritepost *.js silent !standard --fix %
 
 " syntastic
 map <buffer> <Leader>s :call SyntasticCheck()<CR>
+" override syntastic for golang
+autocmd FileType go map <buffer> <Leader>s :GoMetaLinter<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
