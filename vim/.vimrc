@@ -38,11 +38,13 @@ Plugin 'mfukar/robotframework-vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'rust-lang/rust.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'racer-rust/vim-racer'
 
 call vundle#end()
 filetype plugin indent on
 " End of Vundle stuffs
 
+set nomodeline
 set smartindent
 
 let tabsize = 2
@@ -133,7 +135,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.txt set filetype=markdown
 au BufNewFile,BufRead .gitignore set filetype=gitignore
 au BufNewFile,BufRead LICENSE set filetype=LICENSE
-"autocmd BufWritePost *.md silent !pandoc -o ~/preview.pdf %
+autocmd BufWritePre *.md silent :%s/\s\+$//e
 "autocmd BufWritePost *.tex silent !pdflatex %
 autocmd BufWritePost *.solid.py silent !python %
 
@@ -326,7 +328,10 @@ nnoremap <Leader>: :VimuxPromptCommand<cr>
 let g:rustfmt_autosave = 1
 
 " Go Dox
-nnoremap <Leader>d :GoDoc<cr>
+au Filetype go noremap <Leader>d :GoDoc<cr>
+
+" rust-doc
+au FileType rust nmap <Leader>d <Plug>(rust-doc)
 
 " Auto goimports
 let g:go_fmt_command = "goimports"
@@ -348,6 +353,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['standard']
+
+" rustfmt on save
+let g:rustfmt_autosave = 1
+"let g:rustfmt_command = "cargo +stable fmt --"
 
 " Source local vimrc
 if filereadable("~/.localvimrc")

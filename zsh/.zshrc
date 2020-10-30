@@ -67,8 +67,8 @@ setopt ALL_EXPORT
 
 autoload -U colors && colors
 
-COLOR_VALUES=(117 161 141 208 112)
-#       blue orange green magenta purple
+COLOR_VALUES=(117 161 141 208 112 184)
+#       blue orange green magenta purple yellow
 NUM_COLORS=$#COLOR_VALUES
 if [ -z "$HOSTCOLOR_INDEX" ]; then
   HOSTHASH=`echo "$HOST"| ( openssl md5 2> /dev/null || md5 2> /dev/null ||
@@ -80,13 +80,15 @@ fi
 HOSTCOLOR=%F{$COLOR_VALUES[$HOSTCOLOR_INDEX]}
 TMUXCOLOR="colour$COLOR_VALUES[$HOSTCOLOR_INDEX]"
 
-USERHASH=`whoami | ( openssl md5 2> /dev/null || md5 2> /dev/null ||
-          md5sum 2> /dev/null ) | 
-          cut -d' ' -f2 | awk '{ print "0x" substr($1, 2, 2) }'`
-          USERCOLOR_INDEX=$((($USERHASH + 1) % $NUM_COLORS))
+if [ -z "$USERCOLOR_INDEX" ]; then
+  USERHASH=`whoami | ( openssl md5 2> /dev/null || md5 2> /dev/null ||
+            md5sum 2> /dev/null ) | 
+            cut -d' ' -f2 | awk '{ print "0x" substr($1, 2, 2) }'`
+  USERCOLOR_INDEX=$((($USERHASH + 1) % $NUM_COLORS))
 
-if [[ $USERCOLOR_INDEX -eq $HOSTCOLOR_INDEX ]]; then
-  USERCOLOR_INDEX=$USERCOLOR_INDEX+1
+  if [[ $USERCOLOR_INDEX -eq $HOSTCOLOR_INDEX ]]; then
+    USERCOLOR_INDEX=$USERCOLOR_INDEX+1
+  fi
 fi
 
 USERCOLOR=%F{$COLOR_VALUES[$USERCOLOR_INDEX+1]}
@@ -118,6 +120,7 @@ alias ack="ack --smart-case"
 alias weather="weather -u si"
 alias ijulia="ipython console --profile julia"
 alias remoteauth="export SSH_AUTH_SOCK=~/.ssh/agent_sock"
+alias ip="ip -color"
 if (( $+commands[nvim] )) ; then
   alias vim="nvim"
   alias vimdiff="nvim -d"
